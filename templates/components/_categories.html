@@ -1,0 +1,16 @@
+{% load main_tags %}
+
+{% comment %}вызов функции из main_tags{% endcomment %}
+{% get_categories as categories %}
+
+<ul class="list-group list-group-action">
+    {% for category in categories %}
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <a href="{% url 'category-articles' category.id %}" class="fw-bold">{{ category }}</a>
+        </div>
+        <span class="badge text-bg-primary rounded-pill">{{ category.post_set.all.count }}</span>
+    </li>
+    {% endfor %}
+</ul>
+

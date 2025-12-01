@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Категория: {{ category.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between mb-4">
+        <h2>Сортировка:</h2>
+        <div class="d-flex column-gap-3">
+            {% for key, value in sorting_fields.items %}
+                {% if request.GET.sort == value.0 %}
+                    <a href="?sort={{ value.1 }}">{{ key }}</a>
+                {% else %}
+                    <a href="?sort={{ value.0 }}">{{ key }}</a>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="row row-gap-4 mb-4">
+        {% for post in posts %}
+            <div class="col-12 col-md-6 col-lg-4">{% include 'components/_card.html' %}</div>
+        {% endfor %}
+    </div>
+
+    {% include 'components/_pagination.html' %}
+{% endblock %}

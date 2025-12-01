@@ -1,0 +1,67 @@
+-- Lesson 1 
+1.SELECT title FROM movies;
+
+2.SELECT director FROM movies;
+
+3.SELECT title, director FROM movies;
+
+4.SELECT title, year FROM movies;
+
+5.SELECT * FROM movies;
+
+--Lesson 2
+1. SELECT * FROM movies WHERE id = 6;
+
+2.SELECT * FROM movies WHERE year BETWEEN 2000 AND 2010;
+
+3. SELECT * FROM movies WHERE year NOT BETWEEN 2000 AND 2010;
+
+4.SELECT * FROM movies WHERE year LIMIT 5;
+
+
+--Lesson 3 
+1. SELECT title FROM movies WHERE title LIKE "Toy Story%";
+
+2. SELECT title FROM movies WHERE director = "John Lasseter";
+
+3. SELECT title FROM movies WHERE director != "John Lasseter";
+
+4. SELECT title FROM movies WHERE title LIKE "WALL-%"
+
+
+--Lesson 4 : Filtering and sorting Query results
+1. SELECT DISTINCT director FROM movies ORDER BY director;
+
+2. SELECT DISTINCT title FROM movies ORDER BY year DESC LIMIT 4;
+
+3. SELECT title FROM movies ORDER BY title LIMIT 5;
+
+4.SELECT title FROM movies ORDER BY title LIMIT 5 OFFSET 5;
+
+
+--Lesson 5 
+1.SELECT city, population
+FROM north_american_cities
+WHERE country = "Canada";
+
+2.SELECT city
+FROM north_american_cities
+WHERE country = "United States"
+ORDER BY latitude DESC;
+
+3.SELECT city
+FROM north_american_cities
+WHERE longitude < -87.629798
+ORDER BY longitude;
+
+4.SELECT city
+FROM north_american_cities
+WHERE country = "Mexico"
+ORDER BY population DESC
+LIMIT 2;
+
+5.SELECT city
+FROM north_american_cities
+WHERE country = "United States"
+ORDER BY population DESC
+LIMIT 2 OFFSET 2;

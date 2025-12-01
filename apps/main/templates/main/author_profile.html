@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ user.username }}
+{% endblock %}
+
+{% block  content %}
+	<ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <b>Имя пользователя: </b>{{ user.username }}
+        </li>
+        <li class="list-group-item">
+            <b>Почта: </b>{{ user.email }}
+        </li>
+        <li class="list-group-item">
+            <b>Дата регистрации: </b>{{ user.date_joined }}
+        </li>
+        <li class="list-group-item">
+            <b>Кол-во просмотров: </b>{{ total_views }}
+        </li>
+        <li class="list-group-item">
+            <b>Кол-во статей: </b>{{ posts.count }}
+        </li>
+        <li class="list-group-item">
+            <b>Кол-во лайков: </b>{{ total_likes }}
+        </li>
+        <li class="list-group-item">
+            <b>Кол-во дизлайков: </b>{{ total_dislikes }}
+        </li>
+        <li class="list-group-item">
+            <b>Кол-во комментариев: </b>{{ total_comments }}
+        </li>
+    </ul>
+    <div class="row row-gap-4 mb-4">
+        {% for post in posts %}
+            <div class="col-12 col-md-6 col-lg-4">{% include 'components/_card.html' %}</div>
+        {% endfor %}
+    </div>
+{% endblock %}

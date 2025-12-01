@@ -1,0 +1,45 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        {% block title %}  {% comment %}открытие блока{% endcomment %}
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% comment %}шаблонизатор jinja2{% endcomment %}
+</head>
+<body>
+
+{% include 'components/_header.html' %}
+
+<div class="container mt-5">
+    <div class="row row-gap-3 row-lg-gap-0">
+        <div class="col-12 col-lg-2">
+            {% include 'components/_categories.html' %}
+        </div>
+        <div class="col-12 col-lg-10">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+{% block extra_js %}
+{% endblock %}
+</body>
+</html>

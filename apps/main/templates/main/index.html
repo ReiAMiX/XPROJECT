@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+    <div class="row row-gap-4 mb-4">
+        {% for post in posts %}
+            <div class="col-12 col-md-6 col-lg-4">{% include 'components/_card.html' %}</div>
+        {% endfor %}
+    </div>
+
+    {% include 'components/_pagination.html' %}
+{% endblock %}
+
+
+{% comment %}получить все статьи из базы данных и добавить в переменную
+переменную добавить в контекст
+в index.html сделать циклы по переменной из контекста
+{% endcomment %}
